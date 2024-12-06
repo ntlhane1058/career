@@ -1,0 +1,222 @@
+/* styles.css */
+.admin-page {
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif; /* Consistent font */
+}
+
+.admin-button {
+    margin: 10px; /* Add space around admin buttons */
+    padding: 10px 20px; /* Add padding for better button appearance */
+}
+
+.back {
+    margin: 10px; /* Add space around the Back button */
+    padding: 10px 20px; /* Add specific padding for the Back button */
+    background-color: green; /* Optional: Different background color for Back button */
+    border: 1px solid #ccc; /* Optional: Border for Back button */
+    cursor: pointer; /* Pointer cursor for better UX */
+}
+
+/* Additional styling for modals, if needed */
+.modal-content {
+    padding: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row; /* Aligns buttons in a row */
+    justify-content: center; /* Centers the buttons */
+    align-items: center; /* Centers the buttons vertically */
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+.admin-button {
+    background-color: #007bff; /* Bootstrap Primary Color or custom color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for buttons */
+    margin: 10px; /* Space between buttons */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    font-size: 16px; /* Set font size */
+}
+
+.admin-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    float: right;
+}
+
+/* Profile Picture styles */
+.profile-picture-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.profile-picture-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border: 1px solid #ff2600;
+}
+
+/* List styles */
+h2 {
+    margin-top: 40px; /* Added space above section headings */
+    font-size: 24px;
+    color: #333; /* Darker color for headings */
+}
+
+.list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.list-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 15px;
+    width: 250px; /* Fixed width for cards */
+    text-align: left;
+    transition: box-shadow 0.2s;
+}
+
+.list-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.list-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ff2600; /* Highlight title */
+}
+
+.list-card p {
+    font-size: 14px;
+    color: #555; /* Subtle gray for descriptions */
+}
+
+/* Table styles */
+table {
+    margin: 20px auto;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4; /* Light background for table headers */
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    .admin-button {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    .list-container {
+        flex-direction: column; /* Stacks cards vertically on smaller screens */
+        align-items: center; /* Center align items */
+    }
+}
+.institution-faculty-course-list {
+    margin-top: 20px;
+}
+
+.institution {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.institution h3 {
+    margin: 0;
+}
+
+.institution ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.institution li {
+    margin: 5px 0;
+}
+
+.institution h4, .institution h5 {
+    margin: 10px 0 5px;
+}

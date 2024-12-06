@@ -1,0 +1,112 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column; /* Stack logo and links vertically */
+  align-items: center; /* Center the items horizontally */
+  justify-content: center; /* Center everything vertically */
+  background-color: #282c34;
+  color: white;
+  padding: 20px 10px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Space between the logo and links */
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: calc(100vh - 80px); /* Deduct navbar height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url('https://source.unsplash.com/1600x900/?university,education') no-repeat center center/cover;
+  padding: 20px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 90%;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.subheading {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.hero-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .nav-links li {
+    margin: 10px;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+
+  .subheading {
+    font-size: 14px;
+  }
+
+  .hero-button {
+    font-size: 14px;
+  }
+}

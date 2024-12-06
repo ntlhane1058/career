@@ -1,0 +1,136 @@
+-- Create the Database
+CREATE DATABASE IF NOT EXISTS career;
+USE career;
+
+-- Create Students Table
+DROP TABLE IF EXISTS students;
+CREATE TABLE students (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(50) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY (email) -- Ensuring email uniqueness
+);
+
+-- Create Courses Table
+DROP TABLE IF EXISTS courses;
+CREATE TABLE courses (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    faculty_id INT DEFAULT NULL,
+    institution_id INT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Create Institutions Table
+DROP TABLE IF EXISTS institutions;
+CREATE TABLE institutions (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    number_of_students INT NOT NULL,
+    number_of_departments INT NOT NULL,
+    number_of_courses INT NOT NULL,
+    logo VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Create Faculties Table
+DROP TABLE IF EXISTS faculties;
+CREATE TABLE faculties (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    institution_id INT DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Create Admissions Table
+DROP TABLE IF EXISTS admissions;
+CREATE TABLE admissions (
+    id INT NOT NULL AUTO_INCREMENT,
+    student_id INT DEFAULT NULL,
+    course_id INT DEFAULT NULL,
+    institution_id INT DEFAULT NULL,
+    faculty_id INT DEFAULT NULL,
+    status ENUM('admitted', 'pending') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Create Applications Table
+DROP TABLE IF EXISTS applications;
+CREATE TABLE applications (
+    id INT NOT NULL AUTO_INCREMENT,
+    student_name VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(20) DEFAULT NULL,
+    student_id VARCHAR(50) NOT NULL,
+    university VARCHAR(255) DEFAULT NULL,
+    course_id INT NOT NULL,
+    faculty VARCHAR(255) DEFAULT NULL,
+    major_subject VARCHAR(255) DEFAULT NULL,
+    application_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
+
+-- Create Users Table
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    user_type ENUM('admin', 'institute', 'student') NOT NULL,
+    profile_picture VARCHAR(255) DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY (email) -- Ensuring email uniqueness
+);
+
+-- Sample Data for Students Table
+INSERT INTO students (name, email, phone) VALUES
+('John Doe', 'john.doe@example.com', '1234567890'),
+('Jane Smith', 'jane.smith@example.com', '0987654321');
+
+-- Sample Data for Courses Table
+INSERT INTO courses (name) VALUES
+('Bachelor of Arts in Graphic Design'),
+('Bachelor of Science in Information Technology'),
+('Bachelor of Business Administration');
+
+-- Sample Data for Institutions Table
+INSERT INTO institutions (name, number_of_students, number_of_departments, number_of_courses) VALUES
+('Botho University Lesotho', 5000, 7, 28),
+('National University of Lesotho', 8000, 23, 43),
+('Limkokwing University of Creative Technology Lesotho', 4500, 6, 18);
+
+-- Sample Data for Faculties Table
+INSERT INTO faculties (name, institution_id) VALUES
+('FICT', 1),
+('FDI', 2),
+('FFDI', 1);
+
+-- Sample Data for Admissions Table
+INSERT INTO admissions (student_id, course_id, institution_id, faculty_id, status) VALUES
+(1, 1, 1, 1, 'admitted'),
+(2, 2, 2, 2, 'pending');
+
+-- Sample Data for Applications Table
+INSERT INTO applications (student_name, student_id, course_id) VALUES
+('Thabo Lebese', 'S123', 1);
+
+-- Sample Data for Users Table
+INSERT INTO users (name, email, password, user_type) VALUES
+('Botho University', 'botho@info.org.ls', 'password_hash', 'institute'),
+('Admin', 'admin@example.com', 'password_hash', 'admin'),
+('Thabo Lebese', 'thabolebese@gmail.com', 'password_hash', 'student');
+
